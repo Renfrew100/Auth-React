@@ -157,6 +157,8 @@ function PostFeed({ user, refresh }) {
                 {showCommentBox[post.id] ? "Hide Comment" : "Like Comment" }
                 {showCommentBox[post.id] ? "Hide Comment" : "Delete Comment" }
                 {showCommentBox[post.id] ? "Hide Comment" : "Fetch Comment" }
+                {showCommentBox[post.id] ? "Hide Comment" : "Add Comment" }
+                {showCommentBox[post.id] ? "Hide Comment" : "Approve Comment" }
               </Button>
             </div>
 

@@ -52,12 +52,50 @@ function PostComposer({ user, onPostCreated }) {
               value={content}
               onChange={(e) => setContent(e.target.value)}
             />
+
+            <Form.Control
+              as="textarea"
+              rows={4}
+              placeholder="What's going on?"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+            />
+
+            <Form.Control
+              as="textarea"
+              rows={6}
+              placeholder="What's happening?"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+            />
+
+            <Form.Control
+              as="textarea"
+              rows={8}
+              placeholder="What's new?"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              />
+
+              <Form.Control
+              as="textarea"
+              rows={10}
+              placeholder="What's popping?"
+              value={content}
+              onChange-={(e) => setContent(e.target.value)}
+              />
+              
           </Form.Group>
 
+          <Form.Group controlId="postImages" className="mt-2">
+            <Form.Control type="file" multiple onChange={handleFileChange} />
+          </Form.Group>
+          
           {/* Image Upload */}
           <Form.Group controlId="postImages" className="mt-2">
             <Form.Control type="file" multiple onChange={handleFileChange} />
           </Form.Group>
+          
           <div className="image-preview">
     {images.map((file, index) => (
         <img
@@ -65,7 +103,7 @@ function PostComposer({ user, onPostCreated }) {
             src={URL.createObjectURL(file)}
             alt="Preview"
             className="preview-image"
-            style={{ width: "100px", height: "100px", margin: "5px" }}
+            style={{ width: "140px", height: "140px", margin: "15px" }}
         />
     ))}
 </div>
