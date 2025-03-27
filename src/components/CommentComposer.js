@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Image, Form, Button } from "react-bootstrap";
 
-function CommentComposer({ postId, user }) { 
+function CommentComposer({ postId, user, agent }) { 
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
   const [likeCounts, setLikeCounts] = useState({});
@@ -52,7 +52,7 @@ function CommentComposer({ postId, user }) {
   const handleSubmit = async (event) => {
     event.preventDefault(); 
 
-    if (!newComment.trim() || !user) return; 
+    if (!newComment.trim() || !user || !agent) return; 
 
     try {
       const token = localStorage.getItem("token");
@@ -65,7 +65,8 @@ function CommentComposer({ postId, user }) {
         },
         body: JSON.stringify({ 
           content: newComment, 
-          userId: user.id, 
+          userId: user.id,
+          agentId: agent.id
         }),
       });
 
@@ -75,7 +76,8 @@ function CommentComposer({ postId, user }) {
 
       setComments([...comments, { 
         ...newCommentData, 
-        User: { name: user.name, profile_picture: user.profile_picture }
+        User: { name: user.name, profile_picture: user.profile_picture },
+        Agent: { name: agent.name, profile_picture: agent.profile_picture }
       }]); 
 
       if (newCommentData.id) {
