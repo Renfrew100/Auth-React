@@ -58,6 +58,20 @@ function PostFeed({ user, refresh }) {
       .catch((err) => console.error("Failed to like post:", err));
   };
 
+
+  const handleAdd = (postId) => {
+    fetch(`http://127.0.0.1:5000/posts/${postId}/add`, {
+      method: "ADD",
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem("token")}`, 
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then(() => fetchLikeCount(postId)) 
+      .catch((err) => console.error("Failed to like post:", err));
+  };
+
   const handleFetch = (postId) => {
     fetch(`http://127.0.0.1:5000/posts/${postId}/fetch`, {
       method: "FETCH",
@@ -79,7 +93,7 @@ function PostFeed({ user, refresh }) {
   };
 
   return (
-    <div style={{ maxHeight: "600px", overflowY: "scroll", padding: "100px" }}>
+    <div style={{ maxHeight: "620px", overflowY: "scroll", padding: "118px" }}>
       {posts.map((post) => (
         <Card key={post.id} className="mb-4">
           <Card.Body>
@@ -129,6 +143,10 @@ function PostFeed({ user, refresh }) {
                     Like {likeCounts[post.id] !== undefined ? likeCounts[post.id] : ""}  
               </Button>
 
+              <Button variant="outline-primary" size="sm" onClick={() => handleAdd(post.id)}>
+                    Like {likeCounts[post.id] !== undefined ? likeCounts[post.id] : ""}
+              </Button>
+              
               <Button variant="outline-primary" size="sm" onClick={() => handleFetch(post.id)}>
                     Like {likeCounts[post.id] !== undefined ? likeCounts[post.id] : ""}
               </Button>

@@ -136,10 +136,10 @@ function CommentComposer({ postId, user, agent }) {
   return (
     <div key={comment.id}
       style={{
-        border: "1px solid #ccc",
-        marginBottom: "8px",
-        padding: "8px",
-        borderRadius: "5px",
+        border: "2px solid #ccc",
+        marginBottom: "15px",
+        padding: "15px",
+        borderRadius: "15px",
       }}
     >
       {/* User Info */}
@@ -147,8 +147,8 @@ function CommentComposer({ postId, user, agent }) {
         <Image
           src={profileUrl}
           roundedCircle
-          width={30}
-          height={30}
+          width={100}
+          height={100}
           className="me-2"
           alt="comment profile"
         />
@@ -156,14 +156,14 @@ function CommentComposer({ postId, user, agent }) {
       </div>
 
       {/* Comment Content & Timestamp */}
-      <div className="d-flex align-items-center justify-content-between" style={{ marginLeft: "35px" }}>
+      <div className="d-flex align-items-center justify-content-between" style={{ marginLeft: "45px" }}>
         <p className="mb-0" style={{ marginRight: "10px" }}>{comment.content}</p>
         <div>
           <Button
             variant="outline-primary"
             size="sm"
             onClick={() => handleLike(comment.id)}
-            style={{marginRight:"10px"}}
+            style={{marginRight:"55px"}}
           >
             👍 Like{" "}
             {likeCounts[comment.id] !== undefined ? likeCounts[comment.id] : ""}

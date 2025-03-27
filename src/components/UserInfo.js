@@ -4,7 +4,7 @@ import { Card } from "react-bootstrap";
 function UserInfo({ user }) {
   if (!user) {
     return (
-      <Card className="p-3 text-center">
+      <Card className="p-4 text-center">
         <Card.Body>
           <Card.Title>Not Logged In</Card.Title>
           <Card.Text>Please log in to see your profile details.</Card.Text>
@@ -22,10 +22,10 @@ function UserInfo({ user }) {
   return (
     <Card className="p-3 text-center">
       <Card.Img
-        variant="top"
+        variant="bottom"
         src={user.profile_picture}
         alt="User Avatar"
-        style={{ width: "100px", height: "100px", borderRadius: "50%", margin: "auto" }}
+        style={{ width: "140px", height: "140px", borderRadius: "70%", margin: "auto" }}
       />
       <Card.Body>
         <Card.Title>{user.name}</Card.Title>

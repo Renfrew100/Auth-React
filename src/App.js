@@ -44,7 +44,7 @@ function App() {
   return (
     <div>
       <AppNavbar user={user} handleLogout={handleLogout} />
-      <Container className="mt-4">
+      <Container className="mt-7">
         <Row>
           <Col md={8}>
             {user && <PostComposer user={user} onPostCreated={() => setRefreshPosts(!refreshPosts)} />}
