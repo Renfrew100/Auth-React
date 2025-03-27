@@ -103,7 +103,7 @@ function PostComposer({ user, onPostCreated }) {
             src={URL.createObjectURL(file)}
             alt="Preview"
             className="preview-image"
-            style={{ width: "140px", height: "140px", margin: "15px" }}
+            style={{ width: "160px", height: "160px", margin: "30px" }}
         />
     ))}
 </div>

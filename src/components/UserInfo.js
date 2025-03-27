@@ -25,7 +25,7 @@ function UserInfo({ user }) {
         variant="bottom"
         src={user.profile_picture}
         alt="User Avatar"
-        style={{ width: "150px", height: "150px", borderRadius: "100%", margin: "auto" }}
+        style={{ width: "150px", height: "180px", borderRadius: "160%", margin: "auto" }}
       />
       <Card.Body>
         <Card.Title>{user.name}</Card.Title>

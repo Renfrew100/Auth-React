@@ -109,7 +109,7 @@ function CommentComposer({ postId, user, agent }) {
   };
 
   return (
-    <div style={{ marginTop: "10px" }}>
+    <div style={{ marginTop: "20px" }}>
       {/* Comment Input */}
       <Form className="mt-3 mb-3 d-flex" onSubmit={handleSubmit}>
         <Form.Control
@@ -118,7 +118,7 @@ function CommentComposer({ postId, user, agent }) {
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
           className="me-2 flex-grow-1"
-          style={{ height: "45px" }}
+          style={{ height: "90px" }}
         />
         <Button variant="primary" type="submit">
           Submit
@@ -156,14 +156,14 @@ function CommentComposer({ postId, user, agent }) {
       </div>
 
       {/* Comment Content & Timestamp */}
-      <div className="d-flex align-items-center justify-content-between" style={{ marginLeft: "45px" }}>
+      <div className="d-flex align-items-center justify-content-between" style={{ marginLeft: "90px" }}>
         <p className="mb-0" style={{ marginRight: "10px" }}>{comment.content}</p>
         <div>
           <Button
             variant="outline-primary"
             size="sm"
             onClick={() => handleLike(comment.id)}
-            style={{marginRight:"55px"}}
+            style={{marginRight:"70px"}}
           >
             👍 Like{" "}
             {likeCounts[comment.id] !== undefined ? likeCounts[comment.id] : ""}

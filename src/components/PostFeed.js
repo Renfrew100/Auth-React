@@ -85,6 +85,19 @@ function PostFeed({ user, refresh }) {
       .catch((err) => console.error("Failed to like post:", err));
   };
 
+  const handleApprove = (postId) => {
+    fetch(`http://127.0.0.1:5000/posts/${postId}/approve`, {
+      method: "FETCH",
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem("token")}`, 
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then(() => fetchLikeCount(postId)) 
+      .catch((err) => console.error("Failed to like post:", err));
+  }
+
   const toggleCommentBox = (postId) => {
     setShowCommentBox((prev) => ({
       ...prev,

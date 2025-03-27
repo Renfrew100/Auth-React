@@ -14,9 +14,9 @@ function AppNavbar({ user, handleLogout }) {
                 <Image
                   src={user.profile_picture || "https://via.placeholder.com/40"}
                   roundedCircle
-                  width="300"
-                  height="300"
-                  className="me-5"
+                  width="400"
+                  height="400"
+                  className="me-11"
                 />
                 <Button variant="outline-light" onClick={handleLogout}>
                   Logout
