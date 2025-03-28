@@ -58,20 +58,6 @@ function PostFeed({ user, refresh }) {
       .catch((err) => console.error("Failed to like post:", err));
   };
 
-
-  const handleAdd = (postId) => {
-    fetch(`http://127.0.0.1:5000/posts/${postId}/add`, {
-      method: "ADD",
-      headers: {
-        "Authorization": `Bearer ${localStorage.getItem("token")}`, 
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then(() => fetchLikeCount(postId)) 
-      .catch((err) => console.error("Failed to like post:", err));
-  };
-
   const handleFetch = (postId) => {
     fetch(`http://127.0.0.1:5000/posts/${postId}/fetch`, {
       method: "FETCH",
@@ -85,19 +71,6 @@ function PostFeed({ user, refresh }) {
       .catch((err) => console.error("Failed to like post:", err));
   };
 
-  const handleApprove = (postId) => {
-    fetch(`http://127.0.0.1:5000/posts/${postId}/approve`, {
-      method: "FETCH",
-      headers: {
-        "Authorization": `Bearer ${localStorage.getItem("token")}`, 
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then(() => fetchLikeCount(postId)) 
-      .catch((err) => console.error("Failed to like post:", err));
-  }
-
   const toggleCommentBox = (postId) => {
     setShowCommentBox((prev) => ({
       ...prev,
@@ -106,7 +79,7 @@ function PostFeed({ user, refresh }) {
   };
 
   return (
-    <div style={{ maxHeight: "620px", overflowY: "scroll", padding: "118px" }}>
+    <div style={{ maxHeight: "600px", overflowY: "scroll", padding: "240px" }}>
       {posts.map((post) => (
         <Card key={post.id} className="mb-4">
           <Card.Body>
@@ -156,10 +129,6 @@ function PostFeed({ user, refresh }) {
                     Like {likeCounts[post.id] !== undefined ? likeCounts[post.id] : ""}  
               </Button>
 
-              <Button variant="outline-primary" size="sm" onClick={() => handleAdd(post.id)}>
-                    Like {likeCounts[post.id] !== undefined ? likeCounts[post.id] : ""}
-              </Button>
-              
               <Button variant="outline-primary" size="sm" onClick={() => handleFetch(post.id)}>
                     Like {likeCounts[post.id] !== undefined ? likeCounts[post.id] : ""}
               </Button>
@@ -170,8 +139,6 @@ function PostFeed({ user, refresh }) {
                 {showCommentBox[post.id] ? "Hide Comment" : "Like Comment" }
                 {showCommentBox[post.id] ? "Hide Comment" : "Delete Comment" }
                 {showCommentBox[post.id] ? "Hide Comment" : "Fetch Comment" }
-                {showCommentBox[post.id] ? "Hide Comment" : "Add Comment" }
-                {showCommentBox[post.id] ? "Hide Comment" : "Approve Comment" }
               </Button>
             </div>
 
