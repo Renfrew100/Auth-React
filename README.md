@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# ECE9016 Project
 
 ![image](https://github.com/user-attachments/assets/76cbd13a-90a9-4c2d-8604-fde220c7fdff)
 
